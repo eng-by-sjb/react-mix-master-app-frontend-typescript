@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Drink } from "../types";
+import {} from "../styles/CocktailList.styled";
+import { CocktailCardWrapper } from "../styles/CocktailCard.styled";
 
 const CocktailCard = (props: Drink) => {
   const {
@@ -11,20 +13,24 @@ const CocktailCard = (props: Drink) => {
   } = props;
 
   return (
-    <div>
+    <CocktailCardWrapper>
       <div className="image-container">
         <img src={image} alt={`${name} image`} />
       </div>
 
       <div className="footer">
-        <h4>{name}</h4>
+        <div className="drink-name">
+          <h4>{name}</h4>
+          <div className="underline-div"></div>
+        </div>
+
         <h5>{glass}</h5>
         <p>{info}</p>
+        <Link to={`/cocktail/${id}`} className="btn btn-primary">
+          details
+        </Link>
       </div>
-      <Link to={`/cocktail/${id}`} className="btn btn-primary">
-        Details
-      </Link>
-    </div>
+    </CocktailCardWrapper>
   );
 };
 export default CocktailCard;

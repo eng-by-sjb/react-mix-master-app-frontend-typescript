@@ -21,7 +21,12 @@
     "noFallthroughCasesInSwitch": true,
 
     /* User Pref*/
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["/src"],
+      "@components/*": ["src/components/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

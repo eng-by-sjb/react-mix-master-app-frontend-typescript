@@ -5,8 +5,14 @@ import CocktailCard from "./CocktailCard";
 type CocktailListProps = {
   drinks: Drink[];
 };
+// type Cocktail = (props: { drinks: Drink[] }) => JSX.Element;
 
 const CocktailList = ({ drinks }: CocktailListProps) => {
+  console.log(drinks);
+  if (drinks.length === 0) {
+    return <p style={{ textAlign: "center" }}>No matching drinks found</p>;
+  }
+
   return (
     <CocktailListWrapper>
       {drinks.map((drink) => {

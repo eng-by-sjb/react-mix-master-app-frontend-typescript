@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import CocktailList from "../components/CocktailList";
+import CocktailList from "@components/CocktailList";
 import type { Drink } from "../types";
 
 type LoaderData = {
