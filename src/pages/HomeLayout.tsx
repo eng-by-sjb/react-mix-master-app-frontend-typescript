@@ -11,11 +11,7 @@ const HomeLayout = () => {
     <>
       <Navbar></Navbar>
       <PageWrapper>
-        {isPageLoading ? (
-          <h1 style={{ textAlign: "center" }}>Loading...</h1>
-        ) : (
-          <Outlet></Outlet>
-        )}
+        {isPageLoading ? <h1 style={{ textAlign: "center" }}>Loading...</h1> : <Outlet></Outlet>}
       </PageWrapper>
     </>
   );

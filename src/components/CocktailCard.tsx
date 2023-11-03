@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { type Drink } from "../types";
-import {} from "../styles/CocktailList.styled";
 import { CocktailCardWrapper } from "../styles/CocktailCard.styled";
 
 const CocktailCard = (props: Drink) => {
