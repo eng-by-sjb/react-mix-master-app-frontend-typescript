@@ -1,16 +1,16 @@
 import {
   useRouteError,
   Link,
-  // isRouteErrorResponse,
-  ErrorResponse,
+  isRouteErrorResponse,
+  // type ErrorResponse,
 } from "react-router-dom";
 import img from "../assets/not-found.svg";
 import { ErrorWrapper } from "../styles/Error.styled";
 
 const Error = () => {
-  const error = useRouteError() as ErrorResponse;
+  const error = useRouteError();
 
-  if (error.status === 404) {
+  if (isRouteErrorResponse(error) && error.status === 404) {
     return (
       <ErrorWrapper>
         <div>
@@ -27,7 +27,7 @@ const Error = () => {
   return (
     <ErrorWrapper>
       <h3>Ops...</h3>
-      <p>{error.statusText}</p>
+      <p>Something went wrong</p>
     </ErrorWrapper>
   );
 };

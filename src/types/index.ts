@@ -10,7 +10,7 @@ export type Drink = {
   strIngredient3?: string;
 };
 
-// export type Drinks = Pick<
-//   Drink,
-//   "idDrink" | "strAlcoholic" | "strDrink" | "strDrinkThumb" | "strGlass"
-// >[];
+export type Drinks = Pick<
+  Drink,
+  "idDrink" | "strAlcoholic" | "strDrink" | "strDrinkThumb" | "strGlass"
+>[];
