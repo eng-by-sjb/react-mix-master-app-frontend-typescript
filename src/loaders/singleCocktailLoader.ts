@@ -1,7 +1,6 @@
+import axios from "axios";
 import { type LoaderFunctionArgs } from "react-router-dom";
 import { type Drink } from "../types";
-
-import axios from "axios";
 
 const cocktailSearchUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 

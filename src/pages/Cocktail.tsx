@@ -1,11 +1,18 @@
 import { CocktailPageWrapper } from "../styles/CocktailPage.styled";
 import { type Drink } from "../types";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, Navigate } from "react-router-dom";
 
-type LoaderData = { data: { drinks: Array<Drink> }; id: string };
+type LoaderData = {
+  data: {
+    drinks: Array<Drink>;
+  };
+  id: string;
+};
 
 const Cocktail = () => {
-  const { id, data } = useLoaderData() as LoaderData;
+  const { data } = useLoaderData() as LoaderData;
+
+  if (data.drinks === null) return <Navigate to="/"></Navigate>;
 
   const singleDrink = data.drinks[0];
 
@@ -62,7 +69,14 @@ const Cocktail = () => {
 
           <p>
             <span className="drink-data">ingredients: </span>
-            {ingredientsArr.map((item) => item[1]).join(", ")}
+            {ingredientsArr.map((item, index) => {
+              return (
+                <span key={item[1]} className="ing">
+                  {item[1]}
+                  {index < ingredientsArr.length - 1 ? ", " : "."}
+                </span>
+              );
+            })}
           </p>
         </div>
       </div>
