@@ -5,12 +5,14 @@ import axios from "axios";
 
 const cocktailSearchUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
-export const singleCocktailLoader = async ({
-  params,
-}: LoaderFunctionArgs): Promise<{
+type SingleCocktailLoaderType = ({ params }: LoaderFunctionArgs) => Promise<{
   id: string | undefined;
-  data: { drinks: Array<Drink> };
-}> => {
+  data: {
+    drinks: Array<Drink>;
+  };
+}>;
+
+export const singleCocktailLoader: SingleCocktailLoaderType = async ({ params }) => {
   const { id } = params;
 
   const { data } = await axios(`${cocktailSearchUrl}${id}`);

@@ -8,6 +8,7 @@ export type Drink = {
   strIngredient1?: string;
   strIngredient2?: string;
   strIngredient3?: string;
+  strCategory?: string;
 };
 
 export type Drinks = Pick<
