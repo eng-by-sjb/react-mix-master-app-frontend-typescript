@@ -32,10 +32,8 @@ const Cocktail = () => {
   return (
     <CocktailPageWrapper>
       <header>
-        <Link to="/" className="btn">
-          Back Home
-        </Link>
         <h1>{name}</h1>
+        <div className="underline-div"></div>
       </header>
 
       <div className="drink">
@@ -63,11 +61,6 @@ const Cocktail = () => {
           </p>
 
           <p>
-            <span className="drink-data">instructions: </span>
-            {instructions}
-          </p>
-
-          <p>
             <span className="drink-data">ingredients: </span>
             {ingredientsArr.map((item, index) => {
               return (
@@ -78,8 +71,19 @@ const Cocktail = () => {
               );
             })}
           </p>
+
+          <p>
+            <span className="drink-data">instructions: </span>
+            {instructions}
+          </p>
         </div>
       </div>
+
+      <footer>
+        <Link to="/" className="btn">
+          Back Home
+        </Link>
+      </footer>
     </CocktailPageWrapper>
   );
 };

@@ -45,15 +45,6 @@ export const CocktailCardWrapper = styled.article`
       } */
     }
 
-    .underline-div {
-      margin: 0;
-      background: var(--primary-700);
-      width: 1.8rem;
-      height: 0.2rem;
-      border-radius: 20%;
-      /* visibility: hidden; */
-    }
-
     h4 {
       font-weight: 700;
     }
@@ -62,19 +53,6 @@ export const CocktailCardWrapper = styled.article`
       color: var(--grey-500);
     }
 
-    .btn {
-      cursor: pointer;
-      color: var(--white);
-      background: var(--primary-500);
-      border: transparent;
-      border-radius: calc(var(--borderRadius) / 5);
-      letter-spacing: var(--letterSpacing);
-      padding: 0.375rem 0.75rem;
-      box-shadow: var(--shadow-1);
-      transition: var(--transition);
-      text-transform: capitalize;
-      display: inline-block;
-    }
     .btn:hover {
       transform: scale(1.1);
     }
