@@ -2,7 +2,6 @@ import { Form, useNavigation } from "react-router-dom";
 
 const Newsletter = () => {
   const navigate = useNavigation();
-  console.log(navigate);
 
   const isSubmitting = navigate.state === "submitting";
 
@@ -19,7 +18,7 @@ const Newsletter = () => {
           className="form-input"
           name="name"
           id="name"
-          required
+          // required
           defaultValue="steve"
         />
       </div>

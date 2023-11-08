@@ -5,13 +5,19 @@ import { toast } from "react-toastify";
 const newsletterUrl = "https://www.course-api.com/cocktails-newsletter";
 
 export const newsletterAction = async ({ request }: ActionFunctionArgs) => {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData);
+  try {
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
 
-  // console.log(data);
-
-  const { data: respData } = await axios.post(newsletterUrl, data);
-  toast.success(respData.msg);
+    const { data: respData } = await axios.post(newsletterUrl, data);
+    toast.success(respData.msg);
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      toast.error(error?.response?.data?.msg);
+      return error;
+    }
+    console.error(error);
+  }
 
   return redirect("/");
 };
