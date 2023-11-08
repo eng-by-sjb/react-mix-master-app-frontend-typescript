@@ -1,0 +1,1 @@
+export { newsletterAction } from "./newsletterAction";
