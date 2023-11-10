@@ -18,7 +18,7 @@ const Newsletter = () => {
           className="form-input"
           name="name"
           id="name"
-          // required
+          required
           defaultValue="steve"
         />
       </div>
