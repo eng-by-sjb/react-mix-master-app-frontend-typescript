@@ -3,18 +3,20 @@ import { type Drink } from "../types";
 import CocktailCard from "./CocktailCard";
 
 type CocktailListProps = {
-  drinks: Drink[];
+  drinks: Drink[] | undefined;
 };
 // type Cocktail = (props: { drinks: Drink[] }) => JSX.Element;
 
 const CocktailList = ({ drinks }: CocktailListProps) => {
-  if (drinks.length === 0) {
-    return <p style={{ textAlign: "center" }}>No matching drinks found</p>;
+  if (drinks === null) {
+    return <h3 style={{ textAlign: "center", fontSize: "2rem" }}>No matching drinks found</h3>;
   }
+
+  drinks?.map;
 
   return (
     <CocktailListWrapper>
-      {drinks.map((drink) => {
+      {drinks?.map((drink) => {
         return <CocktailCard key={drink.idDrink} {...drink}></CocktailCard>;
       })}
     </CocktailListWrapper>
