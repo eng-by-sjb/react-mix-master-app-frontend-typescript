@@ -3,6 +3,15 @@ import { HomeLayout, Error, Landing, About, Newsletter, Cocktail } from "@pages/
 import { landingLoader, singleCocktailLoader } from "../loaders";
 import SinglePageError from "@components/SinglePageError";
 import { newsletterAction } from "../actions";
+import { QueryClient } from "@tanstack/react-query";
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +22,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
-        loader: landingLoader,
+        loader: landingLoader(queryClient),
         errorElement: <SinglePageError />,
       },
       {

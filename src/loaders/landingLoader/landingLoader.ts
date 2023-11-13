@@ -1,11 +1,15 @@
+import { type QueryClient } from "@tanstack/react-query";
 import { type LoaderFunctionArgs, type LoaderFunction } from "react-router-dom";
+import { searchCocktailQuery } from "./reactQuery";
 
-export const landingLoader: LoaderFunction<LoaderFunctionArgs> = async ({ request }) => {
-  const url = new URL(request.url);
+export const landingLoader =
+  (queryClient: QueryClient): LoaderFunction<LoaderFunctionArgs> =>
+  async ({ request }) => {
+    const url = new URL(request.url);
 
-  const searchTerm = url.searchParams.get("search") ?? "";
+    const searchTerm = url.searchParams.get("search") ?? "";
 
-  // const resp = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
+    const data = await queryClient.ensureQueryData(searchCocktailQuery(searchTerm));
 
-  return { searchTerm };
-};
+    return { searchTerm, data };
+  };
