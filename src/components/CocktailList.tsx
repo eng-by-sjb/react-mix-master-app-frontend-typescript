@@ -12,7 +12,7 @@ const CocktailList = ({ drinks }: CocktailListProps) => {
     return <h3 style={{ textAlign: "center", fontSize: "2rem" }}>No matching drinks found</h3>;
   }
 
-  drinks?.map;
+  // drinks?.map;
 
   return (
     <CocktailListWrapper>

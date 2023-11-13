@@ -1,6 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
 import { CocktailPageWrapper } from "../styles/CocktailPage.styled";
 import { type Drink } from "../types";
-import { useLoaderData, Link, Navigate } from "react-router-dom";
+import { useLoaderData, Navigate, useNavigate } from "react-router-dom";
+import { singleCocktailQuery } from "@loaders/singleCocktailLoader/singleCocktailQuery";
 
 type LoaderData = {
   data: {
@@ -10,11 +12,15 @@ type LoaderData = {
 };
 
 const Cocktail = () => {
-  const { data } = useLoaderData() as LoaderData;
+  const { id } = useLoaderData() as LoaderData;
 
-  if (data.drinks === null) return <Navigate to="/"></Navigate>;
+  const navigate = useNavigate();
 
-  const singleDrink = data.drinks[0];
+  const { data: drinks } = useQuery(singleCocktailQuery(id));
+
+  if (drinks === null || drinks?.[0] === undefined) return <Navigate to="/"></Navigate>;
+
+  const singleDrink = drinks?.[0];
 
   const {
     strDrink: name,
@@ -80,9 +86,14 @@ const Cocktail = () => {
       </div>
 
       <footer>
-        <Link to="/" className="btn">
+        <button
+          onClick={() => {
+            // console.log(navigate());
+            navigate(-1);
+          }}
+          className="btn">
           Back Home
-        </Link>
+        </button>
       </footer>
     </CocktailPageWrapper>
   );

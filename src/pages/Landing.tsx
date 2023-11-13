@@ -3,7 +3,7 @@ import CocktailList from "@components/CocktailList";
 import { type Drink } from "../types";
 import SearchForm from "@components/SearchForm";
 import { useQuery } from "@tanstack/react-query";
-import { searchCocktailQuery } from "@loaders/landingLoader/reactQuery";
+import { searchCocktailQuery } from "@loaders/landingLoader/searchCocktailQuery";
 
 type LoaderData = {
   searchTerm: string;

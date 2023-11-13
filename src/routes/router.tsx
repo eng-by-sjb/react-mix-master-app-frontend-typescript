@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
-        loader: landingLoader(queryClient),
+        loader: landingLoader,
         errorElement: <SinglePageError />,
       },
       {
